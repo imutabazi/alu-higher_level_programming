@@ -39,7 +39,7 @@ Traceback (most recent call last):
 ...
 TypeError: weight must be an integer
 
-Testing boolean (important edge case):
+Testing boolean:
 >>> bg.integer_validator("is_valid", True)
 Traceback (most recent call last):
 ...
@@ -56,3 +56,33 @@ Testing list:
 Traceback (most recent call last):
 ...
 TypeError: list must be an integer
+
+Testing tuple:
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Testing set:
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Testing None:
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+Testing missing value argument:
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Testing completely missing arguments:
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'

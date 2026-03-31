@@ -13,7 +13,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """Retrieve a dictionary representation of a Student.
-        
+
         Args:
             attrs (list): Optional list of attributes to retrieve.
         """
@@ -24,7 +24,7 @@ class Student:
 
     def reload_from_json(self, json):
         """Replace all attributes of the Student instance.
-        
+
         Args:
             json (dict): Dictionary containing new attribute values.
         """

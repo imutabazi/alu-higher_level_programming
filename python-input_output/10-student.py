@@ -13,7 +13,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """Retrieve a dictionary representation of a Student.
-        
+
         Args:
             attrs (list): Optional list of attributes to retrieve.
         """

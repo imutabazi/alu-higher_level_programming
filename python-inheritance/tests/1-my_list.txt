@@ -1,38 +1,37 @@
-===================================
-How to Use 1-my_list.py (Doctests)
-===================================
+=========================
+1-my_list.py
+=========================
 
-This module defines a `MyList` class that inherits from `list`.
+>>> MyList = __import__('1-my_list').MyList
 
-First, import `MyList`:
+Test empty list:
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
 
-    >>> MyList = __import__('1-my_list').MyList
+Test standard unsorted list:
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 
-Create a new instance of `MyList`:
-
-    >>> my_list = MyList()
-    >>> my_list
-    []
-
-Append some integers:
-
-    >>> my_list.append(1)
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(3)
-    >>> my_list.append(5)
-
-Print the list:
-
-    >>> print(my_list)
-    [1, 4, 2, 3, 5]
-
-Print the sorted list:
-
-    >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
-
-Verify the original list is not modified:
-
-    >>> print(my_list)
-    [1, 4, 2, 3, 5]
+Test unsorted list with negative numbers:
+>>> my_list2 = MyList()
+>>> my_list2.append(5)
+>>> my_list2.append(-5)
+>>> my_list2.append(10)
+>>> my_list2.append(-2)
+>>> my_list2.append(0)
+>>> print(my_list2)
+[5, -5, 10, -2, 0]
+>>> my_list2.print_sorted()
+[-5, -2, 0, 5, 10]
+>>> print(my_list2)
+[5, -5, 10, -2, 0]

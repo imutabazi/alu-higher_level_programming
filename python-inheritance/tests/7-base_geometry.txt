@@ -1,0 +1,58 @@
+=============================
+7-base_geometry.py
+=============================
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+Testing area exception:
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+Testing valid integers:
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+
+Testing zero:
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+...
+ValueError: age must be greater than 0
+
+Testing negative number:
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
+
+Testing string:
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+Testing float:
+>>> bg.integer_validator("weight", 3.14)
+Traceback (most recent call last):
+...
+TypeError: weight must be an integer
+
+Testing boolean (important edge case):
+>>> bg.integer_validator("is_valid", True)
+Traceback (most recent call last):
+...
+TypeError: is_valid must be an integer
+
+Testing dictionary:
+>>> bg.integer_validator("data", {"key": "value"})
+Traceback (most recent call last):
+...
+TypeError: data must be an integer
+
+Testing list:
+>>> bg.integer_validator("list", [1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: list must be an integer

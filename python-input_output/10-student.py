@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+"""Module for Student class."""
+
+
+class Student:
+    """Represent a student."""
+
+    def __init__(self, first_name, last_name, age):
+        """Initialize a new Student."""
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self, attrs=None):
+        """Retrieve a dictionary representation of a Student.
+        
+        Args:
+            attrs (list): Optional list of attributes to retrieve.
+        """
+        if (type(attrs) is list and
+                all(type(ele) is str for ele in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        return self.__dict__

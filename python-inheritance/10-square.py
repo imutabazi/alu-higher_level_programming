@@ -8,7 +8,7 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """Instantiate a new Square.
-        
+
         Args:
             size (int): The size of the new Square.
         """
